@@ -3,22 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List</title>
-  <link rel="stylesheet" href="style.css">
+  <title>My To-Do List App</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>My To-Do List</h1>
-    
-    <div class="input-section">
-      <input type="text" id="task-input" placeholder="Add a new task">
-      <button id="add-task-btn">Add Task</button>
-    </div>
-    
-    <ul id="task-list"></ul>
-  </div>
+  <header>
+    <h1>Task Manager</h1>
+  </header>
+
+  <!-- Section for user authentication (Google OAuth) -->
+  <section id="auth">
+    <button id="googleLoginBtn">Login with Google</button>
+  </section>
+
+  <!-- Form to add a new task -->
+  <section id="task-form">
+    <h2>Create New Task</h2>
+    <form id="newTaskForm">
+      <input type="text" id="taskTitle" placeholder="Task Title" required>
+      <textarea id="taskDescription" placeholder="Task Description" required></textarea>
+      <input type="date" id="taskDueDate" required>
+      <select id="taskPriority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <input type="file" id="taskFiles" multiple>
+      <input type="text" id="collaborators" placeholder="Collaborators (comma-separated emails)">
+      <label>
+        Recurring Task:
+        <input type="checkbox" id="taskRecurring">
+      </label>
+      <button type="submit">Add Task</button>
+    </form>
+  </section>
+
+  <!-- Section to filter tasks -->
+  <section id="filter-section">
+    <h2>Filter Tasks</h2>
+    <select id="filterPriority">
+      <option value="">All Priorities</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <select id="filterCategory">
+      <option value="">All Categories</option>
+      <option value="General">General</option>
+      <option value="Work">Work</option>
+      <option value="Personal">Personal</option>
+    </select>
+    <label>
+      Completed:
+      <input type="checkbox" id="filterCompleted">
+    </label>
+    <button id="applyFilters">Apply Filters</button>
+  </section>
+
+  <!-- Section for the task list -->
+  <section id="task-list">
+    <h2>Your Tasks</h2>
+    <ul id="tasksContainer"></ul>
+  </section>
 
   <script src="app.js"></script>
 </body>
 </html>
-
